@@ -29,8 +29,16 @@ module.provider('progressbar', function () {
         //Add CSS3 styles for transition smoothing
             css = document.createElement("style");
         css.type = "text/css";
-        css.innerHTML = ".progressbar {-webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out;}";
-        document.body.appendChild(css);
+        var style = ".progressbar {-webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out}";
+        if (css.styleSheet) {
+            // FIX IE
+            css.styleSheet.cssText = style;
+        } else {
+            // Other browsers
+            css.innerHTML = style;
+        }
+
+        document.getElementsByTagName("head")[0].appendChild(css);
 
         //Styling for the progressbar-container
         progressbarContainer.css('position', 'fixed');
