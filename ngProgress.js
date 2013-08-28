@@ -7,9 +7,9 @@ License: MIT (see LICENSE)
 Source: https://github.com/victorbjelkholm/ngprogress
 */
 
-var module = angular.module('ngProgress', []);
+var moduleProgress = angular.module('ngProgress', []);
 
-module.provider('progressbar', function () {
+moduleProgress.provider('progressbar', function () {
 
     'use strict';
     //Default values for provider
